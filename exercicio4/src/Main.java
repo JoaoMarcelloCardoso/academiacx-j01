@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        List<Integer> fibo = new ArrayList<>();
+        ArrayList<Integer> fibo = new ArrayList<Integer>();
 
         Scanner scanner = new Scanner(System.in);
 
