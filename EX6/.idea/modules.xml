@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../Desafio8/Desafio8.iml" filepath="$PROJECT_DIR$/../Desafio8/Desafio8.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EX6.iml" filepath="$PROJECT_DIR$/EX6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../EX7/EX7.iml" filepath="$PROJECT_DIR$/../EX7/EX7.iml" />
+    </modules>
+  </component>
+</project>
