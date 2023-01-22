@@ -1,7 +1,5 @@
 package com.cxcommerce;
 
-import com.cxcommerce.Agenda;
-import com.cxcommerce.Contato;
 
 import java.util.Scanner;
 
@@ -16,9 +14,10 @@ public class Main
 
         Agenda agenda = new Agenda();
 
-        String opcao = "";
+        boolean roda = true;
+        int opcao;
 
-        while (true) {
+        while (roda) {
 
 
 
@@ -30,19 +29,17 @@ public class Main
             System.out.println("  3 - Remover um contato da agenda");
             System.out.println("  0 - Sair");
 
-            opcao = scanner.next();
-            if ("0".equals(opcao)){
-                break;
-            }
-
-            else{
+            opcao = scanner.nextInt();
 
 
-                if ("1".equals(opcao)){
+            switch (opcao){
+                case 0:
+                    roda = false;
+                    break;
+                case 1:
                     agenda.exibirContatos();
-                }
-
-                else if ("2".equals(opcao)){
+                    break;
+                case 2:
                     System.out.println();
                     System.out.println("Informe os dados a seguir:");
                     System.out.print("    Nome: ");
@@ -53,25 +50,27 @@ public class Main
 
                     Contato contato = new Contato(nome,telefone);
                     agenda.adicionarContato(contato);
-                }
-
-                else if ("3".equals(opcao)){
+                    break;
+                case 3:
                     System.out.println();
                     System.out.println("Por favor informe os dados a seguir:");
                     System.out.print("    Telefone: ");
                     scanner.nextLine();
-                    String telefone = scanner.nextLine();
-                    agenda.remover(telefone);
+                    String telefonex = scanner.nextLine();
+                    agenda.remover(telefonex);
 
                     System.out.println("Operação realizada com sucesso");
-                }
-
-
-                else{
+                    break;
+                default:
                     System.out.println("Opção não encontrada. Tente novamente.");
-                }
+                    break;
+
+
+
+
 
             }
+
 
         }
 

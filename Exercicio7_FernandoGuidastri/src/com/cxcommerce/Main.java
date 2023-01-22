@@ -1,14 +1,9 @@
 package com.cxcommerce;
 
-import com.cxcommerce.Pessoa;
-import com.cxcommerce.Emprestimo;
-
 import java.util.Scanner;
 
-public class Main
-{
-    public static void main(String[] args)
-    {
+public class Main {
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("---- Iniciando arquivo de emprestimos ----");
@@ -16,10 +11,10 @@ public class Main
 
         Emprestimo emprestimo = new Emprestimo();
 
-        String opcao = "";
+        boolean roda = true;
 
-        while (true) {
 
+        while (roda) {
 
 
             System.out.println();
@@ -33,19 +28,19 @@ public class Main
             System.out.println("  6 - Remover um livro do registro-----");
             System.out.println("  0 - Sair");
 
-            opcao = scanner.next();
-            if ("0".equals(opcao)){
-                break;
-            }
+            int opcao = scanner.nextInt();
 
-            else{
+            switch (opcao) {
 
+                case 0:
+                    roda = false;
+                    break;
 
-                if ("1".equals(opcao)){
+                case 1:
                     emprestimo.exibirPessoas();
-                }
+                    break;
 
-                else if ("2".equals(opcao)){
+                case 2:
                     System.out.println();
                     System.out.println("Por favor informe os dados a seguir:");
                     System.out.print("    Nome: ");
@@ -54,62 +49,57 @@ public class Main
                     System.out.print("    Telefone: ");
                     String telefone = scanner.nextLine();
 
-                    Pessoa pessoa = new Pessoa(nome,telefone);
+                    Pessoa pessoa = new Pessoa(nome, telefone);
                     emprestimo.adicionarPessoa(pessoa);
-                }
+                    break;
 
-                else if ("3".equals(opcao)){
+                case 3:
                     System.out.println();
                     System.out.println("Por favor informe os dados a seguir:");
                     System.out.print("    Telefone: ");
                     scanner.nextLine();
-                    String telefone = scanner.nextLine();
-                    emprestimo.remover(telefone);
+                    String telefonex = scanner.nextLine();
+                    emprestimo.remover(telefonex);
 
                     System.out.println("Operação realizada com sucesso");
-                }
-                if ("4".equals(opcao)){
-                    emprestimo.exibirLivros();
-                }
+                    break;
 
-                else if ("5".equals(opcao)){
+                case 4:
+                    emprestimo.exibirLivros();
+                    break;
+
+                case 5:
                     System.out.println();
                     System.out.println("Por favor informe os dados a seguir:");
                     System.out.print("    Nome: ");
                     scanner.nextLine();
-                    String nome = scanner.nextLine();
+                    String nomex = scanner.nextLine();
                     System.out.print("    Codigo do livro: ");
                     String codigo = scanner.nextLine();
 
-                    Livro livro = new Livro(nome,codigo);
+                    Livro livro = new Livro(nomex, codigo);
                     emprestimo.adicionarLivro(livro);
-                }
 
-                else if ("6".equals(opcao)){
+                    break;
+
+                case 6:
                     System.out.println();
                     System.out.println("Por favor informe os dados a seguir:");
                     System.out.print("    Codigo do livro: ");
                     scanner.nextLine();
-                    String codigo = scanner.nextLine();
-                    emprestimo.removerLivros(codigo);
+                    String codigox = scanner.nextLine();
+                    emprestimo.removerLivros(codigox);
 
                     System.out.println("Operação realizada com sucesso");
-                }
+                    break;
 
-
-
-
-
-
-
-                else{
+                default:
                     System.out.println("Opção não encontrada. Tente novamente.");
-                }
+                    break;
 
             }
+
 
         }
-
-
     }
 }

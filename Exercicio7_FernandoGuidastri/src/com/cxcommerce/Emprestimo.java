@@ -1,6 +1,5 @@
 package com.cxcommerce;
 
-import java.sql.ClientInfoStatus;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -80,11 +79,11 @@ public class Emprestimo {
 
     }
 
-    public void removerLivros(String codigo){
+    public void removerLivros(String codigo) {
         if (getLivros().size() > 0) {
             for (int i = 0; i < getLivros().size(); i++) {
-                if (codigo.equalsIgnoreCase(pessoas.get(i).getTelefone())) {
-                    pessoas.remove(i);
+                if (codigo.equalsIgnoreCase(livros.get(i).getCodigo())) {
+                    livros.remove(i);
                     break;
                 }
             }
